@@ -157,7 +157,7 @@ if ($_SESSION['status'] != 'login') {
                                 <?php 
                                     if(isset($_POST['cari'])) {
                                         $keyword = $_POST['keyword'];
-                                        $sql = "SELECT * FROM foto WHERE user_id = '$user_id' AND judul_foto LIKE '%$keyword%' OR deskripsi_foto LIKE '%$keyword%'";
+                                        $sql = "SELECT * FROM foto WHERE user_id = '$user_id' AND (judul_foto LIKE '%$keyword%' OR deskripsi_foto LIKE '%$keyword%')";
                                     } else {
                                         $sql = "SELECT * FROM foto WHERE user_id = '$user_id'";
                                     }
