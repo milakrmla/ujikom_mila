@@ -2,7 +2,11 @@
 session_start();
 include 'koneksi.php';
 
-
+if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+    // Jika file ini diakses langsung melalui browser, alihkan ke halaman lain atau tampilkan pesan kesalahan
+    header("Location: ../index.php");
+    exit;
+}
 
 $foto_id = $_GET['foto_id'];
 $user_id = $_SESSION['user_id'];

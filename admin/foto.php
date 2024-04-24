@@ -142,6 +142,7 @@ if ($_SESSION['status'] != 'login') {
                                 <button type="submit" name="cari" class="btn custom-btn2"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
+                        <div class="table-responsive" style="overflow-x: auto;">
                         <table class="table table-responsive table-bordered table-light" style="border-color: #2D3250;">
                             <thead class="text-center">
                                 <tr class="">
@@ -172,7 +173,7 @@ if ($_SESSION['status'] != 'login') {
                                         <div class="modal-dialog modal-xl text-center">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                    <img src="../assets/img/<?php echo $data['lokasi_file'] ?>" class="img-fluid">
+                                                    <a href="../assets/img/<?php echo $data['lokasi_file'] ?>" target="_blank"><img src="../assets/img/<?php echo $data['lokasi_file'] ?>" class="img-fluid"> </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -204,7 +205,7 @@ if ($_SESSION['status'] != 'login') {
                                                             <label class="form-label mt-2">Foto</label>
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img src="../assets/img/<?php echo $data['lokasi_file'] ?>" width="100">
+                                                                    <a href="../assets/img/<?php echo $data['lokasi_file'] ?>" target="_blank"><img src="../assets/img/<?php echo $data['lokasi_file'] ?>" width="100"></a>
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <label class="form-label">Ganti File</label>
@@ -250,6 +251,7 @@ if ($_SESSION['status'] != 'login') {
                                 <?php } ?>
                             </tbody>
                         </table>
+                                    </div>
                     </div>
                 </div>
             </div>

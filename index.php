@@ -5,7 +5,7 @@ include 'config/koneksi.php';
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['kirimkomentar'])) {
     $foto_id = $_POST['foto_id'];
-    $isi_komentar = $_POST['isi_komentar'];
+    $isi_komentar = mysqli_real_escape_string($koneksi, $_POST['isi_komentar']);
     $tanggal_komentar = date('Y-m-d');
 
     // Simpan komentar ke dalam database
@@ -157,10 +157,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['foto_id'])) {
         </div>
     </nav>
 
-    <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" style="position: relative;">
+    <div class="bg-image p-5 text-center shadow-1-strong mb-5" style="position: relative;">
         <div class="position-absolute top-50 start-50 translate-middle" style="z-index: 1;">
-            <h1 class="mb-3" style="color: #2D3250; white-space: nowrap;">Ekspresikan <b style="color: #F6B17A;">keindahan</b> dalam gambar.</h1>
-            <p style="color: #2D3250;">
+            <h1 class="mb-3" style="color: #2D3250; white-space: nowrap; font-size: 2.5vw;">Ekspresikan <b style="color: #F6B17A;">keindahan</b> dalam gambar.</h1>
+            <p style="color: #2D3250; font-size: 1.3vw">
                 <b>Tunjukkan</b> keindahan dunia dalam satu sentuhan gambar. <b>Temukan</b> inspirasi dalam setiap momen melalui koleksi foto pada galeri kami.
             </p>
         </div>
@@ -234,6 +234,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['foto_id'])) {
                 <div class="modal fade" id="komentar<?php echo $data['foto_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>  
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-8">
